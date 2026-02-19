@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import highlights from "@/data/highlights.json";
 import { getProjects } from "@/lib/content";
@@ -5,6 +6,10 @@ import { HighlightReel } from "@/components/highlight-reel";
 import { ProjectCard } from "@/components/project-card";
 import { HeroSignal } from "@/components/hero-signal";
 
+export const metadata: Metadata = {
+  title: "Ichiro Okochi | Product Designer & Frontend Engineer",
+  description: "Personal portfolio featuring selected case studies across systems, embedded products, and modern web experiences."
+};
 export default async function HomePage() {
   const projects = await getProjects();
   const featured = projects.filter((project) => project.featured).slice(0, 2);
