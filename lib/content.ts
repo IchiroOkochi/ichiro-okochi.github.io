@@ -29,18 +29,26 @@ export const getProjects = async (): Promise<ProjectMeta[]> => {
 };
 
 export const getProjectBySlug = async (slug: string) => {
-  const source = await fs.readFile(path.join(projectsDir, `${slug}.mdx`), "utf8");
+  const filePath = path.join(projectsDir, `${slug}.mdx`);
+  const source = await fs.readFile(filePath, "utf8");
   const { content, data } = matter(source);
 
-  const { content: mdxContent } = await compileMDX({
-    source: content,
-    options: {
-      parseFrontmatter: false,
-      mdxOptions: {
-        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "append" }]]
+  let mdxContent;
+  try {
+    const result = await compileMDX({
+      source: content,
+      options: {
+        parseFrontmatter: false,
+        mdxOptions: {
+          rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "append" }]]
+        }
       }
-    }
-  });
+    });
+    mdxContent = result.content;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`MDX compile failed for slug "${slug}" at ${filePath}\n${message}`);
+  }
 
   const headings = content
     .split("\n")

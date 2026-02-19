@@ -11,6 +11,14 @@ type CommandItem = {
   href: string;
 };
 
+
+const quickLinks: CommandItem[] = [
+  { id: "projects", href: "/projects", label: "Projects", hint: "Browse all case studies" },
+  { id: "experience", href: "/experience", label: "Experience", hint: "Career timeline" },
+  { id: "about", href: "/about", label: "About", hint: "Background and principles" },
+  { id: "contact", href: "/contact", label: "Contact", hint: "Start a conversation" }
+];
+
 export const CommandPalette = ({ projects }: { projects: ProjectMeta[] }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -39,12 +47,6 @@ export const CommandPalette = ({ projects }: { projects: ProjectMeta[] }) => {
     }
   }, [open]);
 
-  const quickLinks: CommandItem[] = [
-    { id: "projects", href: "/projects", label: "Projects", hint: "Browse all case studies" },
-    { id: "experience", href: "/experience", label: "Experience", hint: "Career timeline" },
-    { id: "about", href: "/about", label: "About", hint: "Background and principles" },
-    { id: "contact", href: "/contact", label: "Contact", hint: "Start a conversation" }
-  ];
 
   const resultItems = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -116,6 +118,7 @@ export const CommandPalette = ({ projects }: { projects: ProjectMeta[] }) => {
                     onMouseEnter={() => setActiveIndex(index)}
                     onClick={() => runCommand(item.href)}
                     className={`block w-full rounded-lg px-3 py-2 text-left ${activeIndex === index ? "bg-accent/10 text-accent" : "hover:bg-accent/10"}`}
+                    role="option"
                     aria-selected={activeIndex === index}
                   >
                     <p className="text-sm font-medium">{item.label}</p>
