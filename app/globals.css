@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: 220 40% 98%;
+  --text: 224 71% 4%;
+  --muted: 220 15% 35%;
+  --border: 220 20% 82%;
+  --accent: 221 83% 53%;
+}
+
+.dark {
+  --surface: 225 40% 8%;
+  --text: 210 40% 96%;
+  --muted: 220 15% 72%;
+  --border: 220 20% 24%;
+  --accent: 190 95% 58%;
+}
+
+html, body {
+  @apply bg-surface text-text antialiased;
+}
+
+body {
+  background-image: radial-gradient(circle at 20% 15%, rgba(56, 189, 248, 0.2), transparent 25%), radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.2), transparent 35%);
+  min-height: 100vh;
+}
+
+.prose-custom h2, .prose-custom h3 {
+  scroll-margin-top: 6rem;
+}

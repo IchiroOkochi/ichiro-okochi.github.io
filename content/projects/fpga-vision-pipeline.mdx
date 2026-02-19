@@ -1,0 +1,49 @@
+---
+title: "EdgeVision FPGA Pipeline"
+summary: "A low-latency vision pipeline for sorting systems on constrained hardware."
+timeline: "Feb 2024 - Jul 2024"
+impact: 88
+tags: ["Systems", "FPGA", "ML"]
+featured: false
+role: "Systems Engineer"
+tech: ["Verilog", "Python", "ONNX", "PYNQ", "OpenCV"]
+cover: "/project-fpga.svg"
+---
+
+## Overview
+Developed a deterministic image processing pipeline that classifies parts on a conveyor in real time.
+
+## Role
+Implemented pre-processing stages in FPGA fabric and calibrated the ML inference handoff path.
+
+## Problem
+CPU-only inference couldn't satisfy 30fps with predictable latency under industrial loads.
+
+## Constraints
+- Tight power budget (<8W).
+- Deterministic latency requirement for actuator timing.
+- Limited labeled data for minority defect classes.
+
+## Approach
+Offloaded resize + normalization + edge extraction to FPGA, keeping classifier execution compact.
+
+## Architecture
+Camera frames stream into DMA buffers, FPGA kernels preprocess tensors, ARM core runs ONNX model and emits class decisions.
+
+## Results
+- End-to-end median latency reduced from 96ms to 21ms.
+- Throughput reached 33fps with jitter under 3ms.
+- Defect recall improved by 18% after targeted augmentation.
+
+## Impact
+Enabled real-time reject decisions without replacing existing line controllers.
+
+## Engineering Decisions
+- Chose fixed-point arithmetic for kernels to control power and timing predictability.
+- Added per-stage telemetry counters to pinpoint bottlenecks during bench testing.
+
+## Learnings
+Operational observability should be designed into hardware-software pipelines from day one.
+
+## Next Steps
+Evaluate quantized transformer heads for better defect localization.

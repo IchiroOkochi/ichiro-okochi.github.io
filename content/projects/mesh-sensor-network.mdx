@@ -1,0 +1,50 @@
+---
+title: "MeshSense: Industrial IoT Sensor Network"
+summary: "A resilient mesh network for predictive maintenance across factory lines."
+timeline: "Jan 2024 - May 2024"
+impact: 91
+tags: ["IoT", "Embedded", "Telemetry"]
+featured: true
+role: "Embedded + Full-stack Engineer"
+tech: ["ESP32", "C++", "MQTT", "Next.js", "InfluxDB"]
+cover: "/project-iot.svg"
+---
+
+## Overview
+Designed and shipped a low-power sensor mesh that captures vibration and thermal anomalies from rotating machinery.
+
+## Role
+Owned firmware architecture, gateway reliability, and dashboard UX for operations technicians.
+
+## Problem
+Existing inspections were manual and reactive, causing avoidable downtime.
+
+## Constraints
+- Interference-heavy metal environment.
+- Battery life target of 12+ months.
+- Technician UI had to be operable on gloves + tablets.
+
+## Approach
+Implemented adaptive sampling on nodes and prioritized alert packets over periodic telemetry.
+
+## Architecture
+Nodes stream MQTT packets to a local gateway, then sync to a cloud timeseries store with a retry queue.
+
+## Results
+- 37% reduction in unplanned stoppages during pilot.
+- 96.4% packet delivery reliability across 3 floors.
+- Battery estimates reached 14.2 months median.
+
+## Impact
+- Maintenance planners shifted from weekly checks to risk-based scheduling.
+- Alert-to-response time dropped from 45 min to 9 min.
+
+## Engineering Decisions
+- Chose gossip-style routing over strict tree topology to increase fault tolerance.
+- Built OTA rollback in bootloader for safer field updates.
+
+## Learnings
+Hardware UX matters as much as backend reliability when systems are used under pressure.
+
+## Next Steps
+Add anomaly clustering to reduce duplicate alerts and improve root cause hints.

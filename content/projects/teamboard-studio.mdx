@@ -1,0 +1,49 @@
+---
+title: "TeamBoard Studio"
+summary: "A collaborative planning web app with fast, keyboard-first workflows."
+timeline: "Aug 2023 - Dec 2023"
+impact: 84
+tags: ["Web", "Product", "Collaboration"]
+featured: true
+role: "Product Designer + Frontend Engineer"
+tech: ["Next.js", "TypeScript", "Tailwind", "Prisma", "PostgreSQL"]
+cover: "/project-web.svg"
+---
+
+## Overview
+Created a planning tool for engineering teams to map milestones, blockers, and delivery confidence.
+
+## Role
+Drove product discovery, visual system design, and implementation of key frontend interactions.
+
+## Problem
+Teams used disconnected docs and chats; plans drifted and status reports became stale.
+
+## Constraints
+- Needed sub-100ms feel for board interactions.
+- Required support for low-bandwidth coworking spaces.
+- Accessibility target: full keyboard operation.
+
+## Approach
+Designed a card-based system with optimistic updates and local-first caching for edits.
+
+## Architecture
+App Router frontend with cached route segments, API-backed sync worker, and immutable board snapshots.
+
+## Results
+- 2.4x increase in weekly plan updates.
+- 71% reduction in meeting time spent on status gathering.
+- NPS improved from 24 to 52 after launch.
+
+## Impact
+The app became the default weekly planning workflow for three squads in under one month.
+
+## Engineering Decisions
+- Introduced command palette + keyboard shortcuts before adding advanced analytics.
+- Selected lightweight motion patterns instead of dense charting libraries to keep performance high.
+
+## Learnings
+Speed of interaction strongly influenced adoption more than feature breadth.
+
+## Next Steps
+Launch dependency heatmap and AI-assisted retrospective prompts.
