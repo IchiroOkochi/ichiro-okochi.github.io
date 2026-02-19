@@ -1,0 +1,5 @@
+{
+  "core": ["TypeScript", "React", "Next.js", "C/C++", "Python", "Embedded Linux"],
+  "platforms": ["ESP32", "Raspberry Pi", "AWS IoT", "GitHub Actions", "Figma"],
+  "interests": ["Edge ML", "Hardware UX", "Developer Tooling", "Distributed Systems"]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Embedded Systems Intern",
+    "org": "Apex Mobility Labs",
+    "period": "2024",
+    "description": "Built telemetry firmware and OTA pipeline for smart mobility devices used in pilot fleets."
+  },
+  {
+    "title": "Research Assistant",
+    "org": "Human-Centered Computing Lab",
+    "period": "2023 - 2024",
+    "description": "Investigated low-latency interaction patterns in mixed-signal environments and presented results at student symposiums."
+  },
+  {
+    "title": "Tech Lead",
+    "org": "Engineering Makers Guild",
+    "period": "2022 - 2023",
+    "description": "Led a multidisciplinary team delivering robotics workshops and microcontroller bootcamps for 120+ students."
+  }
+]
