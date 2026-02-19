@@ -1,4 +1,6 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || process.env.NODE_ENV === "production";
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "ichiro-okochi.github.io";
+const basePath = isGithubActions ? `/${repositoryName}` : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,8 +8,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: isGithubActions ? "/ichiro-okochi.github.io" : "",
-  assetPrefix: isGithubActions ? "/ichiro-okochi.github.io/" : "",
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : "",
   experimental: {
     mdxRs: false
   }
