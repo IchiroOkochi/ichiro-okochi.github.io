@@ -3,25 +3,22 @@ import "./globals.css";
 import { ReactNode } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteShell } from "@/components/site-shell";
-import { getProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Ichiro Okochi | Product-minded Engineer",
-  description: "Portfolio of Ichiro Okochi: embedded systems, web apps, and systems engineering case studies.",
+  title: "Ichiro Okochi | Portfolio",
+  description: "Production-ready portfolio with dark mode, smooth motion, and project storytelling.",
   openGraph: {
     title: "Ichiro Okochi Portfolio",
-    description: "Dynamic project storytelling across embedded, web, and systems work."
+    description: "A modern, responsive portfolio built with Next.js and TypeScript."
   }
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
-  const projects = await getProjects();
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <SiteShell projects={projects}>{children}</SiteShell>
+          <SiteShell>{children}</SiteShell>
         </ThemeProvider>
       </body>
     </html>
