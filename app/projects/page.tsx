@@ -12,9 +12,9 @@ export default async function ProjectsPage() {
 
   return (
     <section className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Projects</h1>
-        <p className="mt-3 text-muted">Search, filter, and explore deep-dive case studies.</p>
+      <div className="space-y-3">
+        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+        <p className="max-w-2xl text-muted">Search, filter, and explore case studies with context on constraints, architecture decisions, and measurable outcomes.</p>
       </div>
       <ProjectsClient projects={projects} />
     </section>
