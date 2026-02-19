@@ -23,6 +23,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   @apply bg-surface text-text antialiased;
 }
 

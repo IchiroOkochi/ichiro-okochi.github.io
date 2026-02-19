@@ -7,12 +7,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const projectsDir = path.join(process.cwd(), "content/projects");
 
-const getPosition = (message: string) => {
+const getPosition = (message) => {
   const match = message.match(/(\d+):(\d+)/);
   return match ? `:${match[1]}:${match[2]}` : "";
 };
 
-const validateProjectMdx = async (fileName: string) => {
+const validateProjectMdx = async (fileName) => {
   const filePath = path.join(projectsDir, fileName);
   const source = await fs.readFile(filePath, "utf8");
   const { content } = matter(source);
